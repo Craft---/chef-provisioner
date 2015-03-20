@@ -5,7 +5,7 @@
 # Copyright (C) 2015
 #
 # Install gems
-node['provisionerr']['driver']['gems'].each do |gem|
+node['provisioner']['driver']['gems'].each do |gem|
   chef_gem gem['name'] do
     compile_time true if Chef::Resource::ChefGem.method_defined?(:compile_time)
   end
