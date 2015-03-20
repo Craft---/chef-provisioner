@@ -13,9 +13,9 @@ end
 
 # search data bag chef_orgs for each chef server or org
 # write out knife and pem
-chef_orgs.each do |org|
+search(:chef_orgs, "*:*").each do |org|
   template "#{node['provisioner']['home']}/.chef/knife.rb" do
-    cookbook 'pipeline'
+    cookbook 'chef-provisioner'
     source "knife.rb.erb"
     owner node['provisioner']['user']
     group node['provisioner']['group']
