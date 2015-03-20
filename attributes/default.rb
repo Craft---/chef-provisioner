@@ -1,9 +1,5 @@
 default['provisioner']['chefdk']['version'] = 'latest'
 
-# Chef Server Config
-default['provisioner']['chef_server']['url'] = "http://0.0.0.0:80"
-default['provisioner']['chef_server']['node_name'] = "dev-provisioner"
-
 # aws objects
 default['provisioner']['databag_name'] = ''
 default['provisioner']['key_name'] = ''
