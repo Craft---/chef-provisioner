@@ -6,16 +6,16 @@ default['provisioner']['user'] = 'root'
 default['provisioner']['group'] = 'root'
 default['provisioner']['data_bag'] = 'secrets'
 
+default['provisioner']['chef']['key_name'] = "dev-provisioner-aws-us-east-1"
+
 # AWS object
-aws_config = data_bag_item(node['provisioner']['data_bag'],\
-                           node['provisioner']['chef']['key_name'])
+aws_config = Chef::DataBagItem.load("#{node['provisioner']['data_bag']}", "#{node['provisioner']['chef']['key_name']}")
 default['provisioner']['aws']['key_id'] = aws_config['key_id']
 default['provisioner']['aws']['access_key'] = aws_config['access_key']
 default['provisioner']['aws']['region'] = aws_config['region']
 
 # Knife options
-default['provisioner']['chef']['key_name'] = \
-  "dev-provisioner-aws-#{node['provisioner']['aws']['region']}"
+
 default['provisioner']['knife']['ssl_verify'] = 'verify_none'
 
 # Driver Configuration
