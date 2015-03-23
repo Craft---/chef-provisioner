@@ -1,4 +1,4 @@
 [default]
-aws_access_key_id=<%=node['provisioner']['platform']%>
-aws_secret_access_key=
-region=us-east-1
+aws_access_key_id=<%=node['provisioner']['aws']['key_id']%>
+aws_secret_access_key=<%=node['provisioner']['aws']['access_key']%>
+region=<%=node['provisioner']['aws']['region']%>
