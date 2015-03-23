@@ -1,18 +1,21 @@
 default['provisioner']['chefdk']['version'] = 'latest'
 
-# AWS objects
-default['provisioner']['aws']['databag_name'] = ''
-default['provisioner']['aws']['key_name'] = ''
-default['provisioner']['aws']['key_id'] = ''
-default['provisioner']['aws']['access_key'] = ''
-default['provisioner']['aws']['region'] = 'us-east-1'
-
-# general node options
+# General Node Variables
 default['provisioner']['home'] = ENV['HOME']
 default['provisioner']['user'] = 'root'
 default['provisioner']['group'] = 'root'
+default['provisioner']['data_bag'] = 'secrets'
+
+# AWS object
+aws_config = data_bag_item(node['provisioner']['data_bag'],\
+                           node['provisioner']['chef']['key_name'])
+default['provisioner']['aws']['key_id'] = aws_config["key_id"]
+default['provisioner']['aws']['access_key'] = aws_config["access_key"]
+default['provisioner']['aws']['region'] = aws_config["region"]
 
 # Knife options
+default['provisioner']['chef']['key_name'] =\
+  "dev-provisioner-aws-#{node['provisioner']['aws']['region']}"
 default['provisioner']['knife']['ssl_verify'] = 'verify_none'
 
 # Driver Configuration
