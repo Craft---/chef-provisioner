@@ -10,7 +10,7 @@ node['provisioner']['driver']['gems'].each do |gem|
     compile_time true if Chef::Resource::ChefGem.method_defined?(:compile_time)
   end
 
-  require gem['require'] if gem.has_key?('require')
+  require gem['require'] if gem.key?('require')
 end
 
 # Configure Driver

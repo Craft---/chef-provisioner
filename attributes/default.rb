@@ -13,21 +13,23 @@ default['provisioner']['group'] = 'root'
 default['provisioner']['knife']['ssl_verify'] = ''
 
 # Driver Configuration
-default['provisioner']['driver'] = {
-                                   'gems' => [
-                                             {
-                                                 'name' => 'chef-provisioning-aws',
-                                                 'require' => 'chef/provisioning/aws_driver'
-                                             }
-                                             ],
-                                   'with-parameter' => 'aws::us-east-1'
-                                   }
-default['provisioner']['driver']['machine_options'] = {
-                                                      'ssh_username' => 'ubuntu',
-                                                      'use_private_ip_for_ssh' => false,
-                                                      'bootstrap_options' => {
-                                                                             'key_name' => 'hc-metal-provisioner',
-                                                                             'image_id' => 'ami-b99ed989',
-                                                                             'instance_type' => 'm3.medium'
-                                                                             }
-                                                      }
+default['provisioner']['driver'] = \
+{
+  'gems' => [
+    {
+      'name' => 'chef-provisioning-aws',
+      'require' => 'chef/provisioning/aws_driver'
+    }
+  ],
+  'with-parameter' => 'aws::us-east-1'
+}
+default['provisioner']['driver']['machine_options'] = \
+{
+  'ssh_username' => 'ubuntu',
+  'use_private_ip_for_ssh' => false,
+  'bootstrap_options' => {
+    'key_name' => 'dev-provisioner',
+    'image_id' => 'ami-b99ed989',
+    'instance_type' => 'm3.medium'
+  }
+}
