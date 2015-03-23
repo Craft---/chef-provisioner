@@ -9,12 +9,12 @@ default['provisioner']['data_bag'] = 'secrets'
 # AWS object
 aws_config = data_bag_item(node['provisioner']['data_bag'],\
                            node['provisioner']['chef']['key_name'])
-default['provisioner']['aws']['key_id'] = aws_config["key_id"]
-default['provisioner']['aws']['access_key'] = aws_config["access_key"]
-default['provisioner']['aws']['region'] = aws_config["region"]
+default['provisioner']['aws']['key_id'] = aws_config['key_id']
+default['provisioner']['aws']['access_key'] = aws_config['access_key']
+default['provisioner']['aws']['region'] = aws_config['region']
 
 # Knife options
-default['provisioner']['chef']['key_name'] =\
+default['provisioner']['chef']['key_name'] = \
   "dev-provisioner-aws-#{node['provisioner']['aws']['region']}"
 default['provisioner']['knife']['ssl_verify'] = 'verify_none'
 
