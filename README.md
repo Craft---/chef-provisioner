@@ -20,6 +20,29 @@ the pipeline cookbook here:
 It is a glorified wrapper of functionality from each of those
 cookbooks.
 
+####Create a databag on your central chef server
+
+I'm using an item named `<keyname>-<aws>-<region>` from the attribute
+`node['provisioner'][key-name']`. The data in this data bag needs to be
+populated with info from AWS. Hopefully you know where to get it. It
+might be simplest to generate a new SSH key for this whole operation
+then create a public key from the private .pem file you receive from
+aws.
+
+```json
+{
+  "id": "<provisioner_key_name>",
+  "private_ssh_key": "<private_aws_ssh_key>",
+  "public_ssh_key": "<public_aws_ssh_key_key>",
+  "access_key_id": "<aws_access_key_id>",
+  "access_key": "<aws_access_key>",
+  "aws_region": "<aws_region>"
+}
+```
+Be sure the values of the ssh keys are a single line, replacing actual
+newlines in the files with \n. Do this by running them through irb with
+the command `File.open('<private_key.pem>').read` and also
+`File.open('<public_key.pub>').read`.
 
 Else, you can use this cookbook to create a provisioner
 within your current chef structure.
