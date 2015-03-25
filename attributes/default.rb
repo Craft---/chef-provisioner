@@ -25,7 +25,7 @@ default['provisioner']['driver'] = \
     {
       'name' => 'chef-provisioning-aws',
       'require' => 'chef/provisioning/aws_driver'
-    },
+    }
   ],
   'with-parameter' => 'aws::us-east-1'
 }
