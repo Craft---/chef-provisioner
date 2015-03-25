@@ -30,7 +30,7 @@ end
 
 # Configure Driver
 provisioner_opts = node['provisioner']['driver']['machine_options'].to_hash
-ChefHelpers.symbolize_keys_deep!(provisioner_machine_opts)
+ChefHelpers.symbolize_keys_deep!(provisioner_opts)
 
 with_driver(node['provisioner']['driver']['with-parameter'])
 with_machine_options(provisioner_opts)

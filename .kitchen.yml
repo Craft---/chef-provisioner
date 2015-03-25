@@ -12,6 +12,5 @@ platforms:
 suites:
   - name: default
     run_list:
-      - recipe[chef-provisioner::default]
-
+      - recipe[chef-provisioner]
     attributes:
