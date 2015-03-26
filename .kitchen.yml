@@ -12,5 +12,6 @@ platforms:
 suites:
   - name: default
     run_list:
+      - recipe[build-essential]
       - recipe[chef-provisioner]
     attributes:

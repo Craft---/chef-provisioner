@@ -1,4 +1,9 @@
 default['provisioner']['chefdk']['version'] = 'latest'
+default['provisioner']['compile_time'] = true
+
+default['build-essential']['compile_time'] = true
+default['chef_dk']['version'] = 'latest'
+default['chef_dk']['global_shell_init'] = true
 
 # General Node Variables
 default['provisioner']['home'] = ENV['HOME']
