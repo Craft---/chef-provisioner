@@ -34,3 +34,5 @@ ChefHelpers.symbolize_keys_deep!(provisioner_opts)
 
 with_driver(node['provisioner']['driver']['with-parameter'])
 with_machine_options(provisioner_opts)
+
+include_recipe 'chef-provisioner::ssh_config'

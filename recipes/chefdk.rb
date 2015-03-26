@@ -11,3 +11,5 @@ run_at_compile_time do
     action :install
   end
 end
+
+include_recipe 'chef-provisioner::knife'
