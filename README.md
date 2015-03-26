@@ -8,6 +8,9 @@ for other cloud providers in the future. Or if you'd like to
 contribute, for this repo and add support for your specific
 cloud.
 
+TODO: no support for any provider other than aws
+TODO: Not dynamically setting the validation setting in the knife.rb
+TODO: WARNING A LOT TO DO
 
 If you are looking for something to provision a new chef
 cluster, etc look here: 
@@ -39,10 +42,16 @@ aws.
   "aws_region": "<aws_region>"
 }
 ```
+
 Be sure the values of the ssh keys are a single line, replacing actual
 newlines in the files with \n. Do this by running them through irb with
 the command `File.open('<private_key.pem>').read` and also
 `File.open('<public_key.pub>').read`.
+
+#### Using this cookbook
+
+After creating your ssh keys and databags, just attach the default recipe
+to your runlist. It should handle the rest for you.
 
 Else, you can use this cookbook to create a provisioner
 within your current chef structure.
