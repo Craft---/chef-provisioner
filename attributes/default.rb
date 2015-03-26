@@ -1,17 +1,15 @@
-default['provisioner']['chefdk']['version'] = 'latest'
-default['provisioner']['compile_time'] = true
-
-default['build-essential']['compile_time'] = true
-default['chef_dk']['version'] = 'latest'
-default['chef_dk']['global_shell_init'] = true
-
 # General Node Variables
+default['provisioner']['compile_time'] = true
+default['provisioner']['chefdk']['version'] = 'latest'
 default['provisioner']['home'] = ENV['HOME']
 default['provisioner']['user'] = 'root'
 default['provisioner']['group'] = 'root'
 default['provisioner']['data_bag'] = 'secrets'
 
 default['provisioner']['chef']['key_name'] = "dev-provisioner-aws-us-east-1"
+default['build-essential']['compile_time'] = true
+default['chef_dk']['version'] = 'latest'
+default['chef_dk']['global_shell_init'] = true
 
 # AWS object
 aws_config = Chef::DataBagItem.load("#{node['provisioner']['data_bag']}", "#{node['provisioner']['chef']['key_name']}")
