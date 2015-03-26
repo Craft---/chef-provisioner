@@ -12,4 +12,4 @@ run_at_compile_time do
   end
 end
 
-include_recipe 'chef-provisioner::knife'
+include_recipe 'chef-provisioner::build-essential'
