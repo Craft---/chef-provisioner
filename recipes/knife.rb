@@ -13,7 +13,7 @@ end
 
 # search data bag chef_orgs for each chef server or org
 # write out knife and pem
-search(:chef_orgs, '*:*').each do |org|
+search(:chef_orgs, "*:*").each do |org|
   template "#{node['provisioner']['home']}/.chef/knife.rb" do
     cookbook 'chef-provisioner'
     source 'knife.rb.erb'
@@ -23,6 +23,7 @@ search(:chef_orgs, '*:*').each do |org|
     variables(
         chef_server_url: org['chef_server_url'],
         client_node_name: org['client']
+
     )
   end
 

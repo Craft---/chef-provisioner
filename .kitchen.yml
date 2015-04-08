@@ -7,11 +7,10 @@ provisioner:
   data_bags_path: './../data_bags'
 
 platforms:
-  - name: centos-6.5
+  - name: centos-6.6
 
 suites:
   - name: default
     run_list:
-      - recipe[build-essential]
       - recipe[chef-provisioner]
     attributes:

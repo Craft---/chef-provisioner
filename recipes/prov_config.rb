@@ -5,6 +5,8 @@
 # Copyright (C) 2015
 #
 # Lay Down AWS Config
+require 'chef/nokogiri'
+
 directory "#{node['provisioner']['home']}/.aws" do
   owner node['provisioner']['user']
   group node['provisioner']['group']
@@ -17,6 +19,10 @@ template "#{node['provisioner']['home']}/.aws/conf" do
   group node['provisioner']['group']
   mode 0755
   action :create_if_missing
+end
+
+chef_gem 'chef-provisioning' do
+  compile_time true
 end
 
 # Install gems

@@ -5,8 +5,8 @@ license 'All rights reserved'
 description 'Installs/Configures chef-provisioner'
 long_description 'Installs/Configures chef-provisioner'
 
-version '0.1.0'
+version '0.2.0'
 
-%w( build-essential chef-dk ).each do |g|
+%w( build-essential ).each do |g|
   depends g
 end
