@@ -8,4 +8,4 @@ node.set['build-essential']['compile_time'] = true
 include_recipe 'build-essential::default'
 
 
-include_recipe 'chef-provisioner::knife'
+include_recipe 'chef-provisioner::chefdk'
