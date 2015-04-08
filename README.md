@@ -12,16 +12,12 @@ TODO: no support for any provider other than aws
 TODO: Not dynamically setting the validation setting in the knife.rb
 TODO: WARNING A LOT TO DO
 
-If you are looking for something to provision a new chef
-cluster, etc look here: 
-https://github.com/opscode-cookbooks/chef-server-cluster .
-
-This cookbook borrows heavily from that cookbook as well as
-the pipeline cookbook here:
-
-
-It is a glorified wrapper of functionality from each of those
-cookbooks.
+The thing to keep in mind is this cookbook is for setting up a
+centralized provisioning node. It assumes that you are using a
+centralized or hosted chef server already and not executing your
+provisioning recipes from your own workstation. Your provisioning
+recipes can then get attached to the node's runlist and the
+provisioner will handle the provisioning of those nodes in aws.
 
 ####Create a databag on your central chef server
 
