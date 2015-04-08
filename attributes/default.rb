@@ -11,6 +11,8 @@ default['build-essential']['compile_time'] = true
 default['chef_dk']['version'] = 'latest'
 default['chef_dk']['global_shell_init'] = true
 
+default['provisioner']['packages'] = %w( kernel-devel make m4 patch)
+
 # AWS object
 aws_config = Chef::DataBagItem.load("#{node['provisioner']['data_bag']}", "#{node['provisioner']['chef']['key_name']}")
 default['provisioner']['aws']['key_id'] = aws_config['key_id']
