@@ -7,6 +7,6 @@ long_description 'Installs/Configures chef-provisioner'
 
 version '0.2.0'
 
-%w( build-essential ).each do |g|
+%w( build-essential chef-dk ).each do |g|
   depends g
 end
