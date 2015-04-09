@@ -1,5 +1,7 @@
 # chef-provisioner
-A Chef cookbook to build a chef-provisioner node.
+A Chef cookbook to build a chef-provisioner node that can have
+a runlist of provisioning recipes attached to it to allow for
+centralized provisioning.
 
 Specifically this will be focused on Chef Enterprise, 
 or environments where a central Chef Server ALREADY exists.
