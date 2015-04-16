@@ -1,23 +1,20 @@
 # General Node Variables
 default['provisioner']['compile_time'] = true
-default['provisioner']['chefdk']['version'] = 'latest'
 default['provisioner']['home'] = ENV['HOME']
 default['provisioner']['user'] = 'root'
 default['provisioner']['group'] = 'root'
 default['provisioner']['data_bag'] = 'secrets'
 
-default['provisioner']['chef']['key_name'] = "dev-provisioner-aws-us-east-1"
-default['build-essential']['compile_time'] = true
+default['provisioner']['chef']['key_name'] = "dev-provisioner-aws-us-west-2"
+
 default['chef_dk']['version'] = 'latest'
 default['chef_dk']['global_shell_init'] = true
 
-default['provisioner']['packages'] = %w( kernel-devel make m4 patch)
-
 # AWS object
-aws_config = Chef::DataBagItem.load("#{node['provisioner']['data_bag']}", "#{node['provisioner']['chef']['key_name']}")
-default['provisioner']['aws']['key_id'] = aws_config['key_id']
+aws_config = Chef::DataBagItem.load(node['provisioner']['data_bag'], node['provisioner']['chef']['key_name'])
+default['provisioner']['aws']['key_id'] = aws_config['access_key_id']
 default['provisioner']['aws']['access_key'] = aws_config['access_key']
-default['provisioner']['aws']['region'] = aws_config['region']
+default['provisioner']['aws']['region'] = aws_config['aws_region']
 
 # Knife options
 
@@ -32,7 +29,7 @@ default['provisioner']['driver'] = \
       'require' => 'chef/provisioning/aws_driver'
     }
   ],
-  'with-parameter' => 'aws::us-east-1'
+  'with-parameter' => 'aws::us-west-2'
 }
 default['provisioner']['driver']['machine_options'] = \
 {
@@ -40,7 +37,7 @@ default['provisioner']['driver']['machine_options'] = \
   'use_private_ip_for_ssh' => false,
   'bootstrap_options' => {
     'key_name' => 'dev-provisioner',
-    'image_id' => 'ami-c2a818aa',
-    'instance_type' => 't2.small'
+    'image_id' => 'ami-ecb68a84',
+    'instance_type' => 'm3.medium'
   }
 }

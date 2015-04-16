@@ -13,6 +13,7 @@ cloud.
 TODO: no support for any provider other than aws
 TODO: Not dynamically setting the validation setting in the knife.rb
 TODO: WARNING A LOT TO DO
+TODO: Get CentOS Working
 
 The thing to keep in mind is this cookbook is for setting up a
 centralized provisioning node. It assumes that you are using a
@@ -42,7 +43,8 @@ aws.
 ```
 
 Be sure the values of the ssh keys are a single line, replacing actual
-newlines in the files with \n. Do this by running them through irb with
+newlines in the files with \n. I have included a dummy data bag that can be used
+as long as you enter the ssh keys. To do this you can run them through irb with
 the command `File.open('<private_key.pem>').read` and also
 `File.open('<public_key.pub>').read`.
 
