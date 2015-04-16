@@ -1,3 +1,6 @@
+# 0.1.5
+ - removed chef-dk from from dependencies
+
 # 0.1.4
  - updated changelog
  - corrected knife.rb template
