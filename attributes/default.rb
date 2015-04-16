@@ -4,7 +4,6 @@ default['provisioner']['home'] = ENV['HOME']
 default['provisioner']['user'] = 'root'
 default['provisioner']['group'] = 'root'
 default['provisioner']['data_bag'] = 'secrets'
-
 default['provisioner']['chef']['key_name'] = "dev-provisioner-aws-us-west-2"
 
 default['chef_dk']['version'] = 'latest'
@@ -17,7 +16,8 @@ default['provisioner']['aws']['access_key'] = aws_config['access_key']
 default['provisioner']['aws']['region'] = aws_config['aws_region']
 
 # Knife options
-
+default['knife']['validation_client'] = 'test-validator'
+default['knife']['validation_key'] = '/root/.chef/test-validator.pem'
 default['provisioner']['knife']['ssl_verify'] = 'verify_none'
 
 # Driver Configuration
