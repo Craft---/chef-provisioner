@@ -23,8 +23,8 @@ search(:chef_orgs, "*:*").each do |org|
     variables(
         chef_server_url: org['chef_server_url'],
         client_node_name: org['client'],
-        validation_client: org['validation_client_name'],
-        validation_key: "#{node['provisioner']['home']}/#{org['validation_client_name']}.pem",
+        validation_client: "#{org['validation_client_name']}",
+        validation_key: "#{node['provisioner']['home']}/.chef/#{org['validation_client_name']}.pem",
     )
     end
 
