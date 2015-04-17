@@ -22,8 +22,9 @@ search(:chef_orgs, "*:*").each do |org|
     mode 0644
     variables(
         chef_server_url: org['chef_server_url'],
-        client_node_name: org['client']
-
+        client_node_name: org['client'],
+#        validation_client: "#{org['validation_client_name']}",
+#        validation_key: "/etc/chef/validation.pem",
     )
   end
 

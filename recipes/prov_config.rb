@@ -5,24 +5,18 @@
 # Copyright (C) 2015
 #
 # Lay Down AWS Config
-require 'chef/nokogiri'
-
 directory "#{node['provisioner']['home']}/.aws" do
   owner node['provisioner']['user']
   group node['provisioner']['group']
   mode 0755
 end
 
-template "#{node['provisioner']['home']}/.aws/conf" do
+template "#{node['provisioner']['home']}/.aws/config" do
   source 'aws_conf.erb'
   owner node['provisioner']['user']
   group node['provisioner']['group']
   mode 0755
   action :create_if_missing
-end
-
-chef_gem 'chef-provisioning' do
-  compile_time true
 end
 
 # Install gems
@@ -31,9 +25,10 @@ node['provisioner']['driver']['gems'].each do |gem|
     compile_time true if Chef::Resource::ChefGem.method_defined?(:compile_time)
   end
 
-  require gem['require'] if gem.key?('require')
+  require gem['require'] if gem.has_key?('require')
 end
 
+#require 'chef-provisioning-aws'
 # Configure Driver
 provisioner_opts = node['provisioner']['driver']['machine_options'].to_hash
 ChefHelpers.symbolize_keys_deep!(provisioner_opts)
