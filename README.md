@@ -10,9 +10,9 @@ for other cloud providers in the future. Or if you'd like to
 contribute, for this repo and add support for your specific
 cloud.
 
-TODO: no support for any provider other than aws
-TODO: Create groups/users/permissions on chef server during run
-TODO: Get CentOS Working
+TODO: no support for any provider other than aws  
+TODO: Create groups/users/permissions on chef server during run  
+TODO: Get CentOS Working  
 
 The thing to keep in mind is this cookbook is for setting up a
 centralized provisioning node. It assumes that you are using a
