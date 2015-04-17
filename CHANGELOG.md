@@ -1,5 +1,12 @@
+# 0.2.0
+ - removed validation key logic
+ - added 'convergence_options' hash
+ - added demo provisioning recipe (provisions provisioner)
+ - updated readme
+
 # 0.1.5
  - removed chef-dk from from dependencies
+ - corrected knife.rb content
 
 # 0.1.4
  - updated changelog
